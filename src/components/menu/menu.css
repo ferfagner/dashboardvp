@@ -1,0 +1,22 @@
+
+
+.container__menu{
+    width: 20rem;
+    background-color: #262b30;
+    align-items:center ;
+    max-width: 720px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 14px
+}
+
+.nomeUser{
+    padding: 10px;
+    color: azure;
+}
+
+.imgUser{
+    width: 50%;
+}

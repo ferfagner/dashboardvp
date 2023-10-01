@@ -1,0 +1,11 @@
+.container__main{
+    background-color: #1a1f24;
+    width: 100vw;
+    height: 100vh;
+}
+
+.boxs{
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+}
