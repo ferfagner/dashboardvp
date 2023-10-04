@@ -1,7 +1,13 @@
 import './box.css'
 import { FiThumbsUp } from "react-icons/fi";
 
-export default function Box(){
+interface velueProps{
+    valor: String
+    title: String
+}
+
+export default function Box(value: velueProps){
+    
     return(
     <div className="container__box">
         <div className="icon__box">
@@ -13,11 +19,10 @@ export default function Box(){
 
         <div className="info__box">
             <div className="info__velue">
-        <h2 className="principal__velue">100</h2>
-       <h4 className='second__velue'>,00</h4>
+        <h2 className="principal__velue">{value.valor}</h2>
        </div>
         <div className="info__p">
-       <p>Valor Vendido</p>
+       <p>{value.title}</p>
        </div>
         </div>
        
