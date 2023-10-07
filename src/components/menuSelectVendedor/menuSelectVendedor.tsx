@@ -25,9 +25,10 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
   }, []);
 
   const [primeiroDia, ultimoDia] = getFirstAndLastDay();
+  const date = new Date();
 
   function getFirstAndLastDay() {
-    const date = new Date();
+    
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString().slice(0, 10);
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().slice(0, 10);
     return [firstDay, lastDay];
@@ -51,6 +52,8 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
       console.error('Erro ao obter dados:', error);
     });
   }
+
+  
 
   if (vendedor === null) {
     return <h4>{'Carregando ...'}</h4>;

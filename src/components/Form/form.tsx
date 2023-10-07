@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Form.css'; // Arquivo CSS que será criado
+import './form.css'; // Arquivo CSS que será criado
 
 interface infoempresaProps {
   dadosempresa?: [dadosEmpresaProps];
@@ -39,7 +39,7 @@ export default function Form({ dadosempresa, rota, dadosVendedor }: infoempresaP
         <select
           id='loja'
           name='loja'
-          value={selectedValue}
+          value={selectedValue? selectedValue: 'Selecione uma opção'}
           onChange={(e) => setSelectedValue(e.target.value)}
         >
           {dadosempresa.map((item) => (
