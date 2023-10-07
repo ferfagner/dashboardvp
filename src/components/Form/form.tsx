@@ -1,57 +1,71 @@
-import {useState} from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './form.css'
-
+import './Form.css'; // Arquivo CSS que será criado
 
 interface infoempresaProps {
-    dadosempresa: [dadosEmpresaProps];
-   
+  dadosempresa?: [dadosEmpresaProps];
+  rota: String;
+   dadosVendedor?: vendedorProps[];
 }
+
+interface vendedorProps {
+    loginfuncionario: string;
+    quantidadevenda: number;
+    vl_desconto: number;
+    vl_total_nf: number;
+  }
 
 interface dadosEmpresaProps {
-    identificacaointegracao: String
+  identificacaointegracao: String;
 }
 
+export default function Form({ dadosempresa, rota, dadosVendedor }: infoempresaProps) {
+  const navigate = useNavigate();
+  const [selectedValue, setSelectedValue] = useState("");
 
+  const filtrado = dadosVendedor && dadosVendedor.filter((obj) => obj.loginfuncionario === selectedValue);
 
-
-
-export default function Form(infoempresa: infoempresaProps) {
-    const navigate = useNavigate()
-
-    const [velue, setVelue] = useState("")
-
-   
-
-   function getValue(){
-   
-    navigate(`/info/${velue}`)
-
-
-
-   }
-
-
-
-        return (
-
-
-            <form className='Form' onSubmit={getValue}>
-                <select 
-                id="func" 
-                name="loja"
-                onChange={(e)=> setVelue(e.target.value)}
-                >
-                    {infoempresa.dadosempresa.map(item => 
-                        <option key={Math.random()} value={item.identificacaointegracao.toString()}>{item.identificacaointegracao.toString()}</option>
-                        )}
-
-                
-                </select>
-
-                <button type='submit'>Enviar</button>
-
-            </form>
-        )
+  function getValue() {
+    if (!dadosVendedor) {
+      navigate(`/${rota}/${selectedValue}`);
+    } else {
+      navigate(`/${rota}`, { state: { filtrado } });
     }
+  }
 
+  return (
+    <form className='Form' onSubmit={getValue}>
+      {dadosempresa && (
+        <select
+          id='loja'
+          name='loja'
+          value={selectedValue}
+          onChange={(e) => setSelectedValue(e.target.value)}
+        >
+          {dadosempresa.map((item) => (
+            <option key={item.identificacaointegracao.length} value={item.identificacaointegracao.toString()}>
+              {item.identificacaointegracao.toString()}
+            </option>
+          ))}
+        </select>
+      )}
+
+      {dadosVendedor && (
+        <select
+          id='func'
+          name='funcname'
+          value={selectedValue}
+          onChange={(e) => setSelectedValue(e.target.value)}
+        >
+          {dadosVendedor.map((item) => (
+            <option key={item.loginfuncionario} value={item.loginfuncionario}>
+              {item.loginfuncionario}
+            </option>
+          ))}
+        </select>
+      )}
+
+      <button type='submit'>Enviar</button>
+    </form>
+  );
+}

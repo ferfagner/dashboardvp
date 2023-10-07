@@ -1,4 +1,5 @@
-import Menu from "../../components/menu/menu"
+import MainGeral from "../../components/mainGeral/mainGeral"
+import Menu from "../../components/selectLoja/menu"
 import './home.css'
 
 export default function Home() {
@@ -9,7 +10,10 @@ export default function Home() {
       <div className="menu">
       <Menu/>
       </div>
-    
+
+      <div>
+        <MainGeral />
+      </div>
       
     
     </div>

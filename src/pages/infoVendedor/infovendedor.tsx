@@ -1,4 +1,4 @@
-import Menu from "../../components/menu/menu"
+import Menu from "../../components/selectLoja/menu"
 import Main from "../../components/main/main"
 import './infovendedor.css'
 import axios from 'axios'
@@ -58,7 +58,6 @@ console.log(primeiroDia, ultimoDia)
         )
         .then((response) => {
           setPost(response.data.dados);
-          console.log(`passou aqui`,response.data.dados)
         });
       }
 

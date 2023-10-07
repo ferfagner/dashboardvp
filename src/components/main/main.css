@@ -1,11 +1,46 @@
-.container__main{
-    background-color: #1a1f24;
+.container__main {
     width: 100vw;
-    height: 100vh;
-}
-
-.boxs{
-    padding: 15px;
     display: flex;
-    flex-direction: row;
-}
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .nomeFunc {
+    font-size: 5em;
+    margin-bottom: 10px;
+    color: #FFF;
+  }
+  
+  .boxs {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px; /* Adiciona um espaçamento de 20 pixels entre as boxes */
+  }
+  
+  .box {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .box h3 {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .box p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    max-width: 100%; /* Limita a largura do texto a 100% da largura da box */
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden; /* Esconde qualquer parte do texto que não caiba na box */
+    text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto que ultrapassa o limite */
+  }
+  

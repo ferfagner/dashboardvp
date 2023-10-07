@@ -54,7 +54,6 @@ export default function Menu(nomeLoja : nomeLojaProps){
     }
 
 
-    console.log(nomeLoja.nome,"nome da loja")
 
     if (!infoempresa.sucess) {
         return <h4>{'Carregando ...'}</h4>;
@@ -69,7 +68,10 @@ export default function Menu(nomeLoja : nomeLojaProps){
             />
             <h3 className='nomeUser'>Casa Vieira Porto</h3>
            {
-            nomeLoja.nome? <h2>{nomeLoja.nome}</h2>:<Form dadosempresa={infoempresa.dadosempresa}/> 
+            nomeLoja.nome? <h2>{nomeLoja.nome}</h2>:<Form 
+            dadosempresa={infoempresa.dadosempresa}
+            rota="selectVendedor"
+            /> 
            }
            
             

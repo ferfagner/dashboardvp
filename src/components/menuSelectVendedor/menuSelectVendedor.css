@@ -1,0 +1,63 @@
+.container__menu {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .imgUser {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .nomeUser {
+    font-size: 1.5em;
+    margin: 10px 0;
+  }
+  
+  h3 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+ 
+  
+  select,
+  button {
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .imgUser {
+      max-width: 100px;
+    }
+  
+    .nomeUser {
+      font-size: 1.2em;
+    }
+  
+    h3 {
+      font-size: 1em;
+    }
+  }
+  
