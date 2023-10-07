@@ -23,12 +23,12 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
   useEffect(() => {
     api();
   }, []);
-
+  
   const [primeiroDia, ultimoDia] = getFirstAndLastDay();
-  const date = new Date();
+  
 
   function getFirstAndLastDay() {
-    
+    const date = new Date();
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString().slice(0, 10);
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().slice(0, 10);
     return [firstDay, lastDay];
@@ -37,7 +37,7 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
   function api() {
     axios.post(`${baseURL}`, {
       databasecliente: "BancoDadosCasaVieiraPorto.fdb",
-      comboempresas: `${nomeLoja}`,
+      comboempresas: `PLANALTINA`,
       datainicial: `${primeiroDia}`,
       datafinal: `${ultimoDia}`,
       typerel: 2
@@ -47,6 +47,7 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
         password: "testserver"
       }
     }).then((response) => {
+      console.log(response)
       setVendedor(response.data.dados);
     }).catch((error) => {
       console.error('Erro ao obter dados:', error);
@@ -55,8 +56,9 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
 
   
 
-  if (vendedor === null) {
-    return <h4>{'Carregando ...'}</h4>;
+  
+  if (vendedor?.length === 0) {
+    return <div className="loading">Carregando...</div>;
   }
 
 
