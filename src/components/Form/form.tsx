@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Form.css'; // Arquivo CSS que será criado
+import './form.css'; // Arquivo CSS que será criado
 
 interface infoempresaProps {
   dadosempresa?: [dadosEmpresaProps];
