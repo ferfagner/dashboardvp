@@ -107,7 +107,6 @@ var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleStr
             <div className="venda-info">
               <span>{venda.loginfuncionario}</span>
               <span>Quantidade de Vendas: {venda.quantidadevenda}</span>
-              <span>Total de Vendas: {venda.vl_total_nf}</span>
             </div>
             <div className="relacao">{venda.relacao.toFixed(2)} Pontos</div>
           </div>
