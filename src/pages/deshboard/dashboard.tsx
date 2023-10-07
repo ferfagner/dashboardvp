@@ -2,6 +2,7 @@ import Main from "../../components/main/main";
 import './deshboard.css';
 import { useLocation } from 'react-router-dom';
 
+
 interface vendedorProps {
   loginfuncionario: string;
   quantidadevenda: number;
@@ -14,6 +15,8 @@ export default function Dashboard() {
 
   const { state } = useLocation();
   const dadosVendedor = state?.filtrado?.[0];
+
+ 
 
   function calcularMeta(data : vendedorProps ) {
     
@@ -35,7 +38,7 @@ export default function Dashboard() {
 
     let diasTrabalhados = 0;
 
-    // Contar os dias trabalhados (excluindo os domingos)
+    
     for (let i = hoje.getDate(); i <= diasNoMes; i++) {
       const dataAtual = new Date(hoje.getFullYear(), hoje.getMonth(), i);
       if (dataAtual.getDay() !== 0) {
@@ -50,26 +53,33 @@ export default function Dashboard() {
   
     const metaPorDia = metaRestante / diasTrabalhados;
   
-    
+    const porcentagemMetaAlcancada = ((data.vl_total_nf / meta) * 100).toFixed(2);
   
-    return metaPorDia;
+    return {metaPorDia, porcentagemMetaAlcancada};
   }
+
+  
 
   if (dadosVendedor?.length === 0) {
     return <div className="loading">Carregando...</div>;
   }
 
+  
+
   return (
     <div className="container__app">
-      <div className="menu">
+      <div className="main">
        
           <Main
             loginfuncionario={dadosVendedor.loginfuncionario}
             quantidadevenda={dadosVendedor.quantidadevenda}
-            vl_desconto={calcularMeta(dadosVendedor)}
+            vl_desconto={calcularMeta(dadosVendedor).metaPorDia}
             vl_total_nf={dadosVendedor.vl_total_nf}
+            porcentagemMeta={Number(calcularMeta(dadosVendedor).porcentagemMetaAlcancada)}
           />
-      </div>
+          
+         </div>
+     
     </div>
   );
 }

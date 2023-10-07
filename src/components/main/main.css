@@ -1,5 +1,5 @@
 .container__main {
-    width: 100vw;
+   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,4 +43,25 @@
     overflow: hidden; /* Esconde qualquer parte do texto que não caiba na box */
     text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto que ultrapassa o limite */
   }
+.progress{
+  width: 55vw;
+  padding-top: 2rem ;
+}
+.progress_Header{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.progress_Title{
+  font-size: 1em;
+  color: #FFF;
+  margin-left: 10px;
+}
+
+.progress_Porcentage{
+  margin-right: 10px;
+  font-size: 1em;
+  color: #FFF;
+}
   
