@@ -18,7 +18,7 @@ interface dadosCompletos {
 }
 
 export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
-  const [vendedor, setVendedor] = useState<vendedorProps[] | null>(null);
+  const [vendedor, setVendedor] = useState<vendedorProps[] | undefined>(undefined);
 
   useEffect(() => {
     api();
