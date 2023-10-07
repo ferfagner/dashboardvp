@@ -39,9 +39,12 @@ export default function Form({ dadosempresa, rota, dadosVendedor }: infoempresaP
         <select
           id='loja'
           name='loja'
-          value={selectedValue? selectedValue: 'Selecione uma opção'}
+          value={selectedValue}
           onChange={(e) => setSelectedValue(e.target.value)}
         >
+          <option value="">
+              SELECIONE UMA OPÇÃO
+            </option>
           {dadosempresa.map((item) => (
             <option key={item.identificacaointegracao.length} value={item.identificacaointegracao.toString()}>
               {item.identificacaointegracao.toString()}
@@ -57,11 +60,15 @@ export default function Form({ dadosempresa, rota, dadosVendedor }: infoempresaP
           value={selectedValue}
           onChange={(e) => setSelectedValue(e.target.value)}
         >
+          <option value="">
+          SELECIONE UMA OPÇÃO
+            </option>
           {dadosVendedor.map((item) => (
             <option key={item.loginfuncionario} value={item.loginfuncionario}>
               {item.loginfuncionario}
             </option>
           ))}
+
         </select>
       )}
 
