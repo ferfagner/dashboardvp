@@ -19,3 +19,12 @@
 .imgUser{
     width: 50%;
 }
+
+.loading {
+    font-size: 2em;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }

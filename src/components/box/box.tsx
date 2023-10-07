@@ -1,9 +1,10 @@
 import './box.css'
-import { FiThumbsUp } from "react-icons/fi";
+import { ReactNode } from 'react';
 
 interface velueProps{
     valor: String
     title: String
+    icon: ReactNode
 }
 
 export default function Box(value: velueProps){
@@ -11,10 +12,8 @@ export default function Box(value: velueProps){
     return(
     <div className="container__box">
         <div className="icon__box">
-        < FiThumbsUp 
-        size={50}
-        color="green"
-        />
+         {value.icon}
+       
         </div>
 
         <div className="info__box">

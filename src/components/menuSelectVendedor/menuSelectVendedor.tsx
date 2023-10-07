@@ -6,6 +6,10 @@ import { useState, useEffect } from 'react';
 
 const baseURL = "https://easypedidos.sytes.net:8083/evento/report";
 
+interface ApiResponse {
+  dados: vendedorProps[];
+}
+
 interface vendedorProps {
   loginfuncionario: string;
   quantidadevenda: number;
@@ -35,7 +39,7 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
   }
 
   function api() {
-    axios.post(`${baseURL}`, {
+    axios.post<ApiResponse>(`${baseURL}`, {
       databasecliente: "BancoDadosCasaVieiraPorto.fdb",
       comboempresas: `${nomeLoja}`,
       datainicial: `${primeiroDia}`,
@@ -47,12 +51,14 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
         password: "testserver"
       }
     }).then((response) => {
-      console.log(response)
+     
       setVendedor(response.data.dados);
     }).catch((error) => {
       console.error('Erro ao obter dados:', error);
     });
   }
+
+  
 
   
 
