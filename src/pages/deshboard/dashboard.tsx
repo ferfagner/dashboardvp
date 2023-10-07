@@ -2,12 +2,6 @@ import Main from "../../components/main/main";
 import './deshboard.css';
 import { useLocation } from 'react-router-dom';
 
-interface DadosVendedorProps {
-  loginfuncionario: string;
-  quantidadevenda: number;
-  vl_desconto: number;
-  vl_total_nf: number;
-}
 
 export default function Dashboard() {
   const { state } = useLocation();
