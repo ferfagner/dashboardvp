@@ -21,6 +21,18 @@ export default function Dashboard() {
     const ultimoDiaMes = new Date(hoje.getFullYear(), hoje.getMonth() + 1, 0);
     const diasNoMes = ultimoDiaMes.getDate();
 
+    const metasPorFuncionario: Record<string, number> = {
+      JORDHANNA: 45000,
+      KETILY: 55000,
+      DINORAR: 55000,
+      NATHALLY: 25000,
+      CAMILA: 40000,
+      JESSICA: 25000,
+      DELIENE: 25000,
+      LUANA: 40000,
+      DAICY: 25000
+    };
+
     let diasTrabalhados = 0;
 
     // Contar os dias trabalhados (excluindo os domingos)
@@ -32,7 +44,7 @@ export default function Dashboard() {
     }
 
   
-    const meta = 40000;
+    const meta = metasPorFuncionario[data.loginfuncionario] || 0;
   
     const metaRestante = meta - data.vl_total_nf;
   
