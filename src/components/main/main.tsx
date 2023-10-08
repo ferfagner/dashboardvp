@@ -17,7 +17,7 @@ interface MainProps {
     quantidadevenda: number;
     vl_desconto: number;
     vl_total_nf: number;
-    porcentagemMeta?: number;
+    porcentagemMeta: number;
 }
 
 export default function Main({ loginfuncionario, quantidadevenda, vl_desconto, vl_total_nf, porcentagemMeta }: MainProps) {

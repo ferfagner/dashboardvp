@@ -29,4 +29,13 @@
   button:hover {
     background-color: #45a049;
   }
+  input{
+    font-size: 1em;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 100%;
+  }
   

@@ -53,7 +53,7 @@ var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleStr
             setVendas(response.data.dados);
         });
       }
-      console.log(vendas)
+
 
       
       const vendasComRelacao = vendas.map(venda => ({
