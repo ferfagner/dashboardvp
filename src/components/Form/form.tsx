@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './form.css'; // Arquivo CSS que será criado
-import { Alert } from '@mui/material';
 
 interface infoempresaProps {
   dadosempresa?: [dadosEmpresaProps];
