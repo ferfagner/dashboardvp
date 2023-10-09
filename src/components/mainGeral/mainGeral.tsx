@@ -124,4 +124,3 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
     </div>
   );
 }
-

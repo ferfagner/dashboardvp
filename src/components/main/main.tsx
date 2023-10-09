@@ -41,7 +41,7 @@ export default function Main({ loginfuncionario, quantidadevenda, vl_desconto, v
            
             <div className='progress'>
                 <div className='progress_Header'>
-            <h2 className='progress_Title'>Seu progresso para bater a meta:</h2>
+            <h2 className='progress_Title'>Seu progresso para bater a meta Bronze:</h2>
             <h2 className='progress_Porcentage'>{porcentagemMeta}%</h2>
             </div>
            <GreenLinearProgress 
