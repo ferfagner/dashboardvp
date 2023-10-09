@@ -81,6 +81,7 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
       <Form
         dadosVendedor={vendedor}
         rota="dashboard"
+        nomeLoja={nomeLoja}
       />
     </div>
   );

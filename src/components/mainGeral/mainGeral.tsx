@@ -50,7 +50,6 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
     }
     )
       .then((response) => {
-        console.log(response.data.dados)
         setVendas(response.data.dados);
       });
   }
@@ -67,7 +66,7 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
 
 
   const [primeiro, segundo, terceiro] = vendasComRelacao.slice(0, 3);
-  console.log(vendasComRelacao.length )
+
 
   useEffect(() => {
 

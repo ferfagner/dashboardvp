@@ -6,6 +6,7 @@ interface infoempresaProps {
   dadosempresa?: [dadosEmpresaProps];
   rota: String;
   dadosVendedor?: vendedorProps[];
+  nomeLoja?:String
 }
 
 interface vendedorProps {
@@ -25,7 +26,7 @@ interface PasswordFunc {
 
 
 
-export default function Form({ dadosempresa, rota, dadosVendedor }: infoempresaProps) {
+export default function Form({ dadosempresa, rota, dadosVendedor, nomeLoja }: infoempresaProps) {
   const navigate = useNavigate();
   const [selectedValue, setSelectedValue] = useState("");
   const [password, setPassword] = useState('');
@@ -56,11 +57,12 @@ export default function Form({ dadosempresa, rota, dadosVendedor }: infoempresaP
         navigate(`/${rota}`, { state: { filtrado } });
       }else{
         alert('Senha Incorreta')
+        navigate(`/selectVendedor/${nomeLoja}`);
       }
       
     }
   }
-
+  console.log(dadosempresa)
   return (
     <form className='Form' onSubmit={getValue}>
       {dadosempresa && (
