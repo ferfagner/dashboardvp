@@ -11,66 +11,70 @@ const baseURL = "https://easypedidos.sytes.net:8083/evento/report";
 
 
 interface vendasProps {
-    loginfuncionario: string;
-    quantidadevenda: number;
-    vl_desconto: number;
-    vl_total_nf: number;
+  loginfuncionario: string;
+  quantidadevenda: number;
+  vl_desconto: number;
+  vl_total_nf: number;
 }
 
-interface nomeLojaPorps{
+interface nomeLojaPorps {
   nome?: String
 }
 
 
 
-export default function MainGeral(nomeLoja : nomeLojaPorps){
+export default function MainGeral(nomeLoja: nomeLojaPorps) {
 
-    const [vendas, setVendas] = useState<vendasProps[]>([]);
-
-   
-
-var date = new Date();
-var primeiroDia = new Date(date.getFullYear(), date.getMonth(), 1).toLocaleString('en-ZA').slice(0,10).replace(/\//g,'-');
-var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleString('en-ZA').slice(0,10).replace(/\//g,'-');
+  const [vendas, setVendas] = useState<vendasProps[]>([]);
 
 
 
-    function api(){
-        axios.post(`${baseURL}`, {
-          databasecliente: "BancoDadosCasaVieiraPorto.fdb",
-          comboempresas:`${nomeLoja.nome? nomeLoja.nome: 'CENTRAL'}`,
-          datainicial:`${primeiroDia}`,
-          datafinal:`${ultimoDia}`,
-          typerel:2
-        },{
-          auth: {
-            username: "testserver" ,
-            password: "testserver" 
-          }
-        }
-        )
-        .then((response) => {
-            setVendas(response.data.dados);
-        });
+  var date = new Date();
+  var primeiroDia = new Date(date.getFullYear(), date.getMonth(), 1).toLocaleString('en-ZA').slice(0, 10).replace(/\//g, '-');
+  var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleString('en-ZA').slice(0, 10).replace(/\//g, '-');
+
+
+
+  function api() {
+    axios.post(`${baseURL}`, {
+      databasecliente: "BancoDadosCasaVieiraPorto.fdb",
+      comboempresas: `${nomeLoja.nome ? nomeLoja.nome : 'CENTRAL'}`,
+      datainicial: `${primeiroDia}`,
+      datafinal: `${ultimoDia}`,
+      typerel: 2
+    }, {
+      auth: {
+        username: "testserver",
+        password: "testserver"
       }
+    }
+    )
+      .then((response) => {
+        console.log(response.data.dados)
+        setVendas(response.data.dados);
+      });
+  }
 
 
-      
-      const vendasComRelacao = vendas.map(venda => ({
-        ...venda,
-        relacao: venda.vl_total_nf / venda.quantidadevenda
-    }));
 
-    vendasComRelacao.sort((a, b) => b.relacao - a.relacao);
-        
+  const vendasComRelacao = vendas.map(venda => ({
+    ...venda,
+    relacao: venda.vl_total_nf / venda.quantidadevenda
+  }));
+
+  vendasComRelacao.sort((a, b) => b.relacao - a.relacao);
+
+
+
   const [primeiro, segundo, terceiro] = vendasComRelacao.slice(0, 3);
+  console.log(vendasComRelacao.length )
 
   useEffect(() => {
-  
-      
+
+
     api()
-    
-    
+
+
   }, []);
 
   if (vendas.length === 0) {
@@ -79,8 +83,7 @@ var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleStr
 
   return (
     <div className="App">
-         <div className="podio">
-        <h1>Podio</h1>
+      <div className="podio">
         <div className="podio-item primeiro">
           <FaTrophy className="trophy-icon" />
           <span>Primeiro Lugar</span>
@@ -93,12 +96,17 @@ var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleStr
           <span>{segundo.loginfuncionario}</span>
           <span>{segundo.relacao.toFixed(2)}</span>
         </div>
+        {vendasComRelacao.length > 2 && (
         <div className="podio-item terceiro">
-          <FaTrophy className="trophy-icon" />
-          <span>Terceiro Lugar</span>
-          <span>{terceiro.loginfuncionario}</span>
-          <span>{terceiro.relacao.toFixed(2)}</span>
-        </div>
+        <FaTrophy className="trophy-icon" />
+        <span>Terceiro Lugar</span>
+        <span>{terceiro.loginfuncionario}</span>
+        <span>{terceiro.relacao.toFixed(2)}</span>
+      </div>
+        )
+        
+        }
+        
       </div>
       <h1>Ranking de Vendas</h1>
       <div className="vendas-list">
@@ -113,7 +121,7 @@ var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleStr
         ))}
       </div>
 
-     
+
     </div>
   );
 }

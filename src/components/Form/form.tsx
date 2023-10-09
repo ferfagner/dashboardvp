@@ -73,7 +73,8 @@ export default function Form({ dadosempresa, rota, dadosVendedor }: infoempresaP
           <option value="">
               SELECIONE UMA OPÇÃO
             </option>
-          {dadosempresa.map((item) => (
+          {dadosempresa.filter((item) => item.identificacaointegracao !== 'DEPOSITO')
+          .map((item) => (
             <option key={item.identificacaointegracao.length} value={item.identificacaointegracao.toString()}>
               {item.identificacaointegracao.toString()}
             </option>
