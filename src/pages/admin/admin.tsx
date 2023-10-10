@@ -2,28 +2,13 @@
 import './admin.css'
 
 import axios from 'axios'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const baseURL = "https://easypedidos.sytes.net:8083/evento/report";
 
 
 
-interface infoempresaProps {
-    dadosempresa: [dadosEmpresaProps];
-    databasecliente: number;
-    sucess: boolean
 
-}
-
-interface dadosEmpresaProps {
-    identificacaointegracao: String
-
-
-}
-
-interface nomeLojaProps{
-    nome?: String
-}
 export default function Admin(){
 
    
