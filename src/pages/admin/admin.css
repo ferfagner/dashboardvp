@@ -1,0 +1,10 @@
+.container__app{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.menu{
+    height: 100%;
+}

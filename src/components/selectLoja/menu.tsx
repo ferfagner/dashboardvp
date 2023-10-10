@@ -22,13 +22,13 @@ interface dadosEmpresaProps {
 
 }
 
-interface nomeLojaProps{
+interface nomeLojaProps {
     nome?: String
 }
-export default function Menu(nomeLoja : nomeLojaProps){
+export default function Menu(nomeLoja: nomeLojaProps) {
 
     const [infoempresa, setInfoempresa] = useState<infoempresaProps>({} as infoempresaProps);
-    
+
     useEffect(() => {
 
 
@@ -58,24 +58,30 @@ export default function Menu(nomeLoja : nomeLojaProps){
     if (!infoempresa.sucess) {
         return <h4>{'Carregando ...'}</h4>;
     } else {
-       
-    return(
-        
-        <div className="container__menu">
-            <img 
-            src={imgUser}
-            className='imgUser'
-            />
-            <h3 className='nomeUser'>Casa Vieira Porto</h3>
-           {
-            nomeLoja.nome? <h2>{nomeLoja.nome}</h2>:<Form 
-            dadosempresa={infoempresa.dadosempresa}
-            rota="selectVendedor"
-            /> 
-           }
-           
-            
-        </div>
-    )
 
-    }}
+        return (
+
+            <div className="container__menu">
+                <img
+                    src={imgUser}
+                    className='imgUser'
+                />
+                <h3 className='nomeUser'>Casa Vieira Porto</h3>
+                {
+                    nomeLoja.nome ? <h2>{nomeLoja.nome}</h2> : <Form
+                        dadosempresa={infoempresa.dadosempresa}
+                        rota="selectVendedor"
+                    />
+                }
+
+                <audio controls autoPlay src="https://server06.srvsh.com.br:7304/stream/">
+                    Seu navegador não suporta a reprodução de áudio.
+                </audio>
+
+
+            </div>
+
+        )
+
+    }
+}

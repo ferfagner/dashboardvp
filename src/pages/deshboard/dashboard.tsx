@@ -118,7 +118,7 @@ export default function Dashboard() {
   
 
   return (
-    <div className="container__dashboard">
+    <div className="container__dashboardgit">
       <div className="main">
        
           <Main
