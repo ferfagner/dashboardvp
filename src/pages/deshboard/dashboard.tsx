@@ -1,3 +1,4 @@
+import Box from "../../components/box/box";
 import Main from "../../components/main/main";
 import './deshboard.css';
 import { useLocation } from 'react-router-dom';
@@ -107,6 +108,12 @@ export default function Dashboard() {
 
   }
 
+  function retornaResumoPremio(data : vendedorProps){
+
+    const resumo =  data.vl_total_nf * 0.01
+
+    return resumo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
 
 
   
@@ -159,8 +166,12 @@ export default function Dashboard() {
           <span>{calcularFaltaParaMeta(dadosVendedor, "ouro")}</span>
           <span>{calculaPremioParaMeta(dadosVendedor, "ouro")}</span>
       </div>
-       
-        
+
+      <div className="resumo-item">
+          <span>Você já Faturou</span>
+          
+        <span>{retornaResumoPremio(dadosVendedor)}</span>
+        </div>
       </div>
     </div>
   );
