@@ -70,19 +70,22 @@ export default function Dashboard() {
     return {metaPorDia, porcentagemMetaAlcancada};
   }
 
-  function calcularFaltaParaMeta(data: vendedorProps, premio : string) {
+  function calcularFaltaParaMeta(data: vendedorProps, premio: string, type: string) {
+  const meta = metasPorFuncionario[data.loginfuncionario] + (metasPorFuncionario[data.loginfuncionario] * premioPorMeta[premio]) || 0;
+  let faltaParaMeta = meta - (data.vl_total_nf - data.vl_desconto);
 
-   
+  faltaParaMeta = faltaParaMeta < 0 ? 0 : faltaParaMeta;
 
-    const meta = metasPorFuncionario[data.loginfuncionario] + (metasPorFuncionario[data.loginfuncionario] * premioPorMeta[premio]) || 0;
-    const faltaParaMeta = meta - (data.vl_total_nf - data.vl_desconto);
 
-    
-    return faltaParaMeta.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });;
-
+  if (type === "s") {
+    return faltaParaMeta.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  } else {
+    return faltaParaMeta;
   }
+}
 
-  function calculaPremioParaMeta(data : vendedorProps, premio : string){
+
+  function calculaPremioParaMeta(data : vendedorProps, premio : string, type: boolean){
 
     const premioPorMeta: Record<string, number> = {
       bronze: 0.004,
@@ -94,7 +97,13 @@ export default function Dashboard() {
     const meta = metasPorFuncionario[data.loginfuncionario] || 0;
     const total = meta * premioPorMeta[premio]
 
-    return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    if(type === true){
+      return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }else{
+      return total
+    }
+
+   
 
   }
 
@@ -108,18 +117,48 @@ export default function Dashboard() {
 
   }
 
-  function retornaResumoPremio(data : vendedorProps){
-
-    const resumo =  data.vl_total_nf * 0.01
-
-    return resumo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-  }
+ 
 
 
-  
-
+ 
   if (dadosVendedor?.length === 0) {
     return <div className="loading">Carregando...</div>;
+  }
+
+  const faltaParaMetaBronze = calcularFaltaParaMeta(dadosVendedor, "bronze", "s");
+  const faltaParaMetaPrata = calcularFaltaParaMeta(dadosVendedor, "prata", "s");
+  const faltaParaMetaOuro = calcularFaltaParaMeta(dadosVendedor, "ouro", "s");
+
+  const mudaCorMetaBronze = Number(calcularFaltaParaMeta(dadosVendedor, "bronze", "i"));
+  const mudaCorMetaPrata = Number(calcularFaltaParaMeta(dadosVendedor, "prata", "i"));
+  const mudaCorMetaOuro = Number(calcularFaltaParaMeta(dadosVendedor, "ouro", "i"));
+
+  const calculaPremioMetaBronze = calculaPremioParaMeta(dadosVendedor, "bronze", true);
+  const calculaPremioMetaPrata = calculaPremioParaMeta(dadosVendedor, "prata", true);
+  const calculaPremioMetaOuro = calculaPremioParaMeta(dadosVendedor, "ouro", true);
+
+  const calculaPremioMetaBronzeInt = calculaPremioParaMeta(dadosVendedor, "bronze", false);
+  const calculaPremioMetaPrataInt = calculaPremioParaMeta(dadosVendedor, "prata", false);
+  const calculaPremioMetaOuroInt = calculaPremioParaMeta(dadosVendedor, "ouro", false);
+
+  
+  function retornaResumoPremio(data: vendedorProps) {
+    let resumo = (data.vl_total_nf - data.vl_desconto) * 0.01;
+  
+    if (mudaCorMetaBronze <= 0 && calculaPremioMetaBronzeInt !== undefined) {
+      console.log('entrou')
+      resumo += Number(calculaPremioMetaBronzeInt);
+    }
+  
+    if (mudaCorMetaPrata <= 0 && calculaPremioMetaPrataInt !== undefined) {
+      resumo += Number(calculaPremioMetaPrataInt)
+    }
+  
+    if (mudaCorMetaOuro <= 0 && calculaPremioMetaOuroInt  !== undefined) {
+      resumo += Number(calculaPremioMetaOuroInt)
+    }
+  
+    return resumo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
 
   
@@ -146,25 +185,25 @@ export default function Dashboard() {
           <span>Premiação</span>
         </div>
        
-        <div className="podio-item terceiro">
+        <div className={`podio-item  ${mudaCorMetaBronze <= 0 ? "verde" : "terceiro"}`}>
           <span>Bronze</span>
           <span>{retornaMetaEmReal(dadosVendedor, "bronze")}</span>
-          <span>{calcularFaltaParaMeta(dadosVendedor, "bronze")}</span>
-          <span>{calculaPremioParaMeta(dadosVendedor, "bronze")}</span>
+          <span>{faltaParaMetaBronze}</span>
+          <span>{calculaPremioMetaBronze}</span>
         </div>
         
-        <div className="podio-item segundo">
+        <div className={`podio-item  ${mudaCorMetaPrata <= 0 ? "verde" : "segundo"}`}>
         <span>Prata</span>
         <span>{retornaMetaEmReal(dadosVendedor, "prata")}</span>
-          <span>{calcularFaltaParaMeta(dadosVendedor, "prata")}</span>
-          <span>{calculaPremioParaMeta(dadosVendedor, "prata")}</span>
+          <span>{faltaParaMetaPrata}</span>
+          <span>{calculaPremioMetaPrata}</span>
         </div>
        
-        <div className="podio-item primeiro">
+        <div className={`podio-item  ${mudaCorMetaOuro <= 0 ? "verde" : "primeiro"}`}>
         <span>Ouro</span>
         <span>{retornaMetaEmReal(dadosVendedor, "ouro")}</span>
-          <span>{calcularFaltaParaMeta(dadosVendedor, "ouro")}</span>
-          <span>{calculaPremioParaMeta(dadosVendedor, "ouro")}</span>
+          <span>{faltaParaMetaOuro}</span>
+          <span>{calculaPremioMetaOuro}</span>
       </div>
 
       <div className="resumo-item">
