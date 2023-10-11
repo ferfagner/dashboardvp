@@ -1,4 +1,4 @@
-import Box from "../../components/box/box";
+
 import Main from "../../components/main/main";
 import './deshboard.css';
 import { useLocation } from 'react-router-dom';
