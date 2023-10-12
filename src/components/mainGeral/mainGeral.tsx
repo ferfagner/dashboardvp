@@ -10,6 +10,7 @@ const baseURL = "https://easypedidos.sytes.net:8083/evento/report";
 
 
 
+
 interface vendasProps {
   loginfuncionario: string;
   quantidadevenda: number;
@@ -23,7 +24,10 @@ interface nomeLojaPorps {
 
 
 
+
 export default function MainGeral(nomeLoja: nomeLojaPorps) {
+
+  
 
   const [vendas, setVendas] = useState<vendasProps[]>([]);
 
@@ -58,7 +62,7 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
 
   const vendasComRelacao = vendas.map(venda => ({
     ...venda,
-    relacao: venda.vl_total_nf / venda.quantidadevenda
+    relacao: (venda.vl_total_nf - venda.vl_desconto) / venda.quantidadevenda
   }));
 
   vendasComRelacao.sort((a, b) => b.relacao - a.relacao);

@@ -1,113 +1,113 @@
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-  
-  .App {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #f4f4f4;
-    text-align: center;
-  }
-  
-  .vendas-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -10px;
-  }
-  
-  .venda-item {
-    flex: 0 0 calc(33.33% - 20px);
-    margin: 10px;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    cursor: pointer;
-  }
-  
-  .venda-item:hover {
-    transform: translateY(-5px);
-  }
-  
-  .venda-info span {
-    display: block;
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 5px;
-  }
-  
-  .relacao {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #4caf50;
-  }
-  
-  .podio {
-    margin-top: 30px;
-  }
-  
-  .podio-item {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-  }
-  
-  .podio-item span {
-    flex: 1;
-    font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.App {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #f4f4f4;
+  text-align: center;
+}
+
+.vendas-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.venda-item {
+  flex: 0 0 calc(33.33% - 20px);
+  width: 8vw;
+  margin: 5px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.venda-item:hover {
+  transform: translateY(-5px);
+}
+
+.venda-info span {
+  display: block;
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.relacao {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+.podio {
+  margin-top: 30px;
+}
+
+.podio-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.podio-item span {
+  flex: 1;
+  font-weight: bold;
+}
+
+.loading {
+  font-size: 2em;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.trophy-icon {
+  color: #ffc107;
+  font-size: 2em;
+  margin-right: 10px;
+}
+
+.primeiro {
+  background-color: #ffd700;
+}
+
+.segundo {
+  background-color: #c0c0c0;
+}
+
+.terceiro {
+  background-color: #cd7f32;
+}
+
+@media (max-width: 768px) {
+  .podio-item,
+  .resumo-item {
+    width: 50vw; 
+    font-size: 0.8rem; /* Tamanho de fonte um pouco maior para telas menores */
   }
 
-  .loading {
-    font-size: 2em;
-    color: #FFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  .progress-bar-label {
+    font-size: 14px;
   }
-  
-  .trophy-icon {
-    color: #ffc107;
-    font-size: 2em;
-    margin-right: 10px;
-  }
-  
-  .primeiro {
-    background-color: #ffd700;
-  }
-  
-  .segundo {
-    background-color: #c0c0c0;
-  }
-  
-  .terceiro {
-    background-color: #cd7f32;
-  }
-  
-  @media (max-width: 768px) {
-    .podio-item,
-    .resumo-item {
-        width: 90vw; 
-        font-size: 0.5rem;/* Reduzindo a largura para caber em telas menores */
-    }
-
-    .progress-bar-label {
-        font-size: 14px; /* Reduzindo o tamanho da fonte */
-    }
 }

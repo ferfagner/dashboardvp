@@ -1,4 +1,5 @@
 
+
 import Main from "../../components/main/main";
 import './deshboard.css';
 import { useLocation } from 'react-router-dom';
@@ -211,6 +212,7 @@ export default function Dashboard() {
           
         <span>{retornaResumoPremio(dadosVendedor)}</span>
         </div>
+        
       </div>
     </div>
   );
