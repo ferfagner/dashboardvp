@@ -59,8 +59,10 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
   }
 
 
+ const filteredVendas = vendas.filter(venda => venda.loginfuncionario !== 'PAMELA');
 
-  const vendasComRelacao = vendas.map(venda => ({
+  // Process and sort the filtered sales data
+  const vendasComRelacao = filteredVendas.map(venda => ({
     ...venda,
     relacao: (venda.vl_total_nf - venda.vl_desconto) / venda.quantidadevenda
   }));
