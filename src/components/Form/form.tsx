@@ -45,7 +45,8 @@ export default function Form({ dadosempresa, rota, dadosVendedor, nomeLoja }: in
       JESSICA: 1864,
       DELIENE: 2860,
       LUANA: 1950,
-      DAICY: 8580
+      DAICY: 8580,
+      PAMELA: 3317
 
     }
 
