@@ -17,10 +17,11 @@ interface MainProps {
     quantidadevenda: number;
     vl_desconto: number;
     vl_total_nf: number;
-    porcentagemMeta: number;
+    porcentagemMeta: string;
+    qualmeta: string
 }
 
-export default function Main({ loginfuncionario, quantidadevenda, vl_desconto, vl_total_nf, porcentagemMeta }: MainProps) {
+export default function Main({ loginfuncionario, quantidadevenda, vl_desconto, vl_total_nf, porcentagemMeta, qualmeta }: MainProps) {
 
    
     function formattedTotal(valor: number){
@@ -41,12 +42,12 @@ export default function Main({ loginfuncionario, quantidadevenda, vl_desconto, v
            
             <div className='progress'>
                 <div className='progress_Header'>
-            <h2 className='progress_Title'>Seu progresso para bater a meta Bronze:</h2>
+            <h2 className='progress_Title'>Seu progresso para bater a meta {qualmeta}</h2>
             <h2 className='progress_Porcentage'>{porcentagemMeta}%</h2>
             </div>
            <GreenLinearProgress 
            variant="determinate" 
-           value={porcentagemMeta}
+           value={Number(porcentagemMeta)}
            />
            </div>
         </div>

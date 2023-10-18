@@ -42,35 +42,7 @@ PAMELA: 45000
 
  
 
-  function calcularMeta(data : vendedorProps ) {
-    
-    const hoje = new Date();
-    const ultimoDiaMes = new Date(hoje.getFullYear(), hoje.getMonth() + 1, 0);
-    const diasNoMes = ultimoDiaMes.getDate();
-
-    
-
-    let diasTrabalhados = 0;
-
-    
-    for (let i = hoje.getDate(); i <= diasNoMes; i++) {
-      const dataAtual = new Date(hoje.getFullYear(), hoje.getMonth(), i);
-      if (dataAtual.getDay() !== 0) {
-        diasTrabalhados++;
-      }
-    }
-
   
-    const meta = metasPorFuncionario[data.loginfuncionario] || 0;
-  
-    const metaRestante = meta - (data.vl_total_nf - data.vl_desconto);
-  
-    const metaPorDia = metaRestante / diasTrabalhados;
-  
-    const porcentagemMetaAlcancada = (((data.vl_total_nf - data.vl_desconto)  / meta) * 100).toFixed(2);
-  
-    return {metaPorDia, porcentagemMetaAlcancada};
-  }
 
   function calcularFaltaParaMeta(data: vendedorProps, premio: string, type: string) {
   const meta = metasPorFuncionario[data.loginfuncionario] + (metasPorFuncionario[data.loginfuncionario] * premioPorMeta[premio]) || 0;
@@ -117,6 +89,47 @@ PAMELA: 45000
 
     return meta.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
+  }
+
+  function calcularMeta(data : vendedorProps ) {
+    
+    const hoje = new Date();
+    const ultimoDiaMes = new Date(hoje.getFullYear(), hoje.getMonth() + 1, 0);
+    const diasNoMes = ultimoDiaMes.getDate();
+
+    
+
+    let diasTrabalhados = 0;
+
+    
+    for (let i = hoje.getDate(); i <= diasNoMes; i++) {
+      const dataAtual = new Date(hoje.getFullYear(), hoje.getMonth(), i);
+      if (dataAtual.getDay() !== 0) {
+        diasTrabalhados++;
+      }
+    }
+
+    const meta = metasPorFuncionario[data.loginfuncionario] || 0;
+
+    let metaRestante = meta - (data.vl_total_nf - data.vl_desconto)
+    let porcentagemMetaAlcancada = (((data.vl_total_nf - data.vl_desconto)  / meta) * 100);
+  
+    if(metaRestante <= 0 ){
+
+      metaRestante = ((meta * 0.21)+meta) - (data.vl_total_nf - data.vl_desconto)
+    }
+
+    console.log()
+  
+    const metaPorDia = metaRestante / diasTrabalhados;
+  
+    if(porcentagemMetaAlcancada > 100){
+
+      porcentagemMetaAlcancada = (((data.vl_total_nf - data.vl_desconto)  / ((meta * 0.21)+meta)) * 100)
+      
+    }
+  
+    return {metaPorDia, porcentagemMetaAlcancada};
   }
 
  
@@ -174,7 +187,8 @@ PAMELA: 45000
             quantidadevenda={dadosVendedor.quantidadevenda}
             vl_desconto={calcularMeta(dadosVendedor).metaPorDia}
             vl_total_nf={dadosVendedor.vl_total_nf - dadosVendedor.vl_desconto}
-            porcentagemMeta={Number(calcularMeta(dadosVendedor).porcentagemMetaAlcancada)}
+            porcentagemMeta={Number(calcularMeta(dadosVendedor).porcentagemMetaAlcancada).toFixed(2)}
+            qualmeta={mudaCorMetaBronze <= 0 ? "Ouro" : "Bronze"}
           />
           
          </div>

@@ -1,10 +1,11 @@
-.container__app{
+.chart{
     width: 100%;
+    background-color: #fff;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
+   color: #000;
 }
 
-.menu{
-    height: 100%;
-}
+
+
