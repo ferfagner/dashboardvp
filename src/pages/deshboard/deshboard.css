@@ -71,6 +71,7 @@
     font-weight: bold;
   }
 
+
   @media (max-width: 768px) {
     .podio-item,
     .resumo-item {

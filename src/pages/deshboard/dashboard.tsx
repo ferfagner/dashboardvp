@@ -68,8 +68,22 @@ PAMELA: 45000
      
     };
 
+    let total = 0
     const meta = metasPorFuncionario[data.loginfuncionario] || 0;
-    const total = meta * premioPorMeta[premio]
+
+    if(premio === 'bronze'){
+      total = ((meta* 0.01) + meta) * premioPorMeta[premio]
+    }
+
+    if(premio === 'prata'){
+      total = (((meta* 0.101) + meta)) * premioPorMeta[premio]
+    }
+
+    if(premio === 'ouro'){
+      total = (((meta* 0.21) + meta)) * premioPorMeta[premio]
+    }
+    
+    
 
     if(type === true){
       return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -119,13 +133,23 @@ PAMELA: 45000
       metaRestante = ((meta * 0.21)+meta) - (data.vl_total_nf - data.vl_desconto)
     }
 
-    console.log()
+    if(metaRestante <= 0 ){
+
+      metaRestante = 0
+    }
+
   
     const metaPorDia = metaRestante / diasTrabalhados;
   
     if(porcentagemMetaAlcancada > 100){
 
       porcentagemMetaAlcancada = (((data.vl_total_nf - data.vl_desconto)  / ((meta * 0.21)+meta)) * 100)
+      
+    }
+
+    if(porcentagemMetaAlcancada > 100){
+
+      porcentagemMetaAlcancada = 100
       
     }
   
@@ -161,16 +185,16 @@ PAMELA: 45000
     let resumo = (data.vl_total_nf - data.vl_desconto) * 0.01;
   
     if (mudaCorMetaBronze <= 0 && calculaPremioMetaBronzeInt !== undefined) {
-      console.log('entrou')
-      resumo += Number(calculaPremioMetaBronzeInt);
+      console.log(calculaPremioMetaBronzeInt)
+      resumo = ((data.vl_total_nf - data.vl_desconto) * 0.01) + Number(calculaPremioMetaBronzeInt);
     }
   
     if (mudaCorMetaPrata <= 0 && calculaPremioMetaPrataInt !== undefined) {
-      resumo += Number(calculaPremioMetaPrataInt)
+      resumo = ((data.vl_total_nf - data.vl_desconto) * 0.01) + Number(calculaPremioMetaPrataInt)
     }
   
     if (mudaCorMetaOuro <= 0 && calculaPremioMetaOuroInt  !== undefined) {
-      resumo += Number(calculaPremioMetaOuroInt)
+      resumo = ((data.vl_total_nf - data.vl_desconto)) * 0.01 + Number(calculaPremioMetaOuroInt)
     }
   
     return resumo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -190,7 +214,6 @@ PAMELA: 45000
             porcentagemMeta={Number(calcularMeta(dadosVendedor).porcentagemMetaAlcancada).toFixed(2)}
             qualmeta={mudaCorMetaBronze <= 0 ? "Ouro" : "Bronze"}
           />
-          
          </div>
          <div className="podio">
 
