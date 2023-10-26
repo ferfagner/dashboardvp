@@ -76,7 +76,7 @@ export default function Form({ dadosempresa, rota, dadosVendedor, nomeLoja }: in
           <option value="">
               SELECIONE UMA OPÇÃO
             </option>
-          {dadosempresa.filter((item) => item.identificacaointegracao !== 'DEPOSITO')
+          {dadosempresa.filter((item) => item.identificacaointegracao !== 'DEPOSITO'&& item.identificacaointegracao !== 'SALAO')
           .map((item) => (
             <option key={item.identificacaointegracao.length} value={item.identificacaointegracao.toString()}>
               {item.identificacaointegracao.toString()}
