@@ -12,7 +12,7 @@ export default function Rotas() {
    return(
        <BrowserRouter>
            <Routes>
-           <Route path="/" element={<Home/>}  />
+           <Route path="/funcionarios" element={<Home/>}  />
            <Route path="/selectVendedor/:nomeLoja" element={<SelectVendedor/>}  />
            <Route path="/dashboard" element={<Dashboard/>}  />
            <Route path="/admin" element={<Admin/>}  />
