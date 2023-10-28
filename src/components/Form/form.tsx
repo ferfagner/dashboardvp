@@ -64,6 +64,7 @@ export default function Form({ dadosempresa, rota, dadosVendedor, nomeLoja }: in
     }
   }
 
+
   return (
     <form className='Form' onSubmit={getValue}>
       {dadosempresa && (
@@ -95,6 +96,7 @@ export default function Form({ dadosempresa, rota, dadosVendedor, nomeLoja }: in
           <option value="">
           SELECIONE UMA OPÇÃO
             </option>
+           
           {dadosVendedor.map((item) => (
             <option key={item.loginfuncionario} value={item.loginfuncionario}>
               {item.loginfuncionario}

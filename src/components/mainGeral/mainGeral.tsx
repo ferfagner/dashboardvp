@@ -97,6 +97,7 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
           <span>{primeiro.relacao.toFixed(2)}</span>
           {nomeLoja.nome?  <></>: <span>R$80,00</span>}
         </div>
+        {vendasComRelacao.length > 1 && (
         <div className="podio-item segundo">
           <FaTrophy className="trophy-icon" />
           <span>Segundo Lugar</span>
@@ -104,6 +105,9 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
           <span>{segundo.relacao.toFixed(2)}</span>
           {nomeLoja.nome?  <></>: <span>R$40,00</span>}
         </div>
+        )
+        
+      }
         {vendasComRelacao.length > 2 && (
         <div className="podio-item terceiro">
         <FaTrophy className="trophy-icon" />

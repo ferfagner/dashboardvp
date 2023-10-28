@@ -61,8 +61,6 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
   
 
   
-
-  
   if (vendedor?.length === 0) {
     return <div className="loading">Carregando...</div>;
   }
