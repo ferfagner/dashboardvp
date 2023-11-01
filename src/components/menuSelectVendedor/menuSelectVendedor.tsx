@@ -37,6 +37,9 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().slice(0, 10);
     return [firstDay, lastDay];
   }
+  console.log(primeiroDia)
+  console.log(ultimoDia)
+  
 
   function api() {
     axios.post<ApiResponse>(`${baseURL}`, {
