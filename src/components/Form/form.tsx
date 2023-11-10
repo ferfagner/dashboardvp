@@ -46,7 +46,8 @@ export default function Form({ dadosempresa, rota, dadosVendedor, nomeLoja }: in
       DELIENE: 2860,
       LUANA: 1950,
       DAICY: 8580,
-      PAMELA: 3317
+      PAMELA: 3317,
+      MRAMALHO: 3535,
 
     }
 
