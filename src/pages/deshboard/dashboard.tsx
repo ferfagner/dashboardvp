@@ -28,7 +28,7 @@ export default function Dashboard() {
     DELIENE: 25000,
     LUANA: 40000,
     DAICY: 25000,
-PAMELA: 45000
+MRAMALHO: 45000
   };
 
   const premioPorMeta: Record<string, number> = {
