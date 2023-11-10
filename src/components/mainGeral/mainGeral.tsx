@@ -59,7 +59,7 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
   }
 
 
-  const filteredVendas = vendas.filter(venda => venda.loginfuncionario !== 'MARIANA' && venda.loginfuncionario !== 'Administrador' && venda.loginfuncionario !== 'CAIXA');
+  const filteredVendas = vendas.filter(venda => venda.loginfuncionario !== 'MARIANA' && venda.loginfuncionario !== 'Administrador'  && venda.loginfuncionario !== 'PAMELA' && venda.loginfuncionario !== 'M RAMALHO' && venda.loginfuncionario !== 'CAIXA');
 
 
   // Process and sort the filtered sales data
