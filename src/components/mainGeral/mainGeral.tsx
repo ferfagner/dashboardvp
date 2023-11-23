@@ -37,7 +37,8 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
   var primeiroDia = new Date(date.getFullYear(), date.getMonth(), 1).toLocaleString('en-ZA').slice(0, 10).replace(/\//g, '-');
   var ultimoDia = new Date(date.getFullYear(), date.getMonth() + 1, 0).toLocaleString('en-ZA').slice(0, 10).replace(/\//g, '-');
 
-
+  console.log(primeiroDia)
+   console.log(ultimoDia)
 
   function api() {
     axios.post(`${baseURL}`, {
