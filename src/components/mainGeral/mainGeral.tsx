@@ -43,8 +43,8 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
     axios.post(`${baseURL}`, {
       databasecliente: "BancoDadosCasaVieiraPorto.fdb",
       comboempresas: `${nomeLoja.nome ? nomeLoja.nome : 'CENTRAL'}`,
-      datainicial: `${primeiroDia}`,
-      datafinal: `${ultimoDia}`,
+      datainicial: '2023-10-01',
+      datafinal: '2023-10-31',
       typerel: 2
     }, {
       auth: {
