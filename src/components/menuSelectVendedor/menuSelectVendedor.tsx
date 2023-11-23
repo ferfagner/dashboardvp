@@ -46,7 +46,7 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
       databasecliente: "BancoDadosCasaVieiraPorto.fdb",
       comboempresas: `${nomeLoja}`,
       datainicial: '2023-10-01',
-      datafinal: '2023-10-31',
+      datafinal: '2023-10-15',
       typerel: 2
     }, {
       auth: {
