@@ -10,7 +10,6 @@ const baseURL = "https://easypedidos.sytes.net:8083/evento/report";
 
 
 
-
 interface vendasProps {
   loginfuncionario: string;
   quantidadevenda: number;
@@ -28,6 +27,17 @@ interface nomeLojaPorps {
 export default function MainGeral(nomeLoja: nomeLojaPorps) {
 
   
+ const diasTrabalhadosPorFuncionario: Record<string, number> = {
+    JORDHANNA: 21,
+    KETILY: 22,
+    DINORAR: 24,
+    NATHALLY: 24,
+    CAMILA: 22,
+    DELIENE: 24,
+    LUANA: 23,
+    DAICY: 24,
+MRAMALHO: 19
+  };
 
   const [vendas, setVendas] = useState<vendasProps[]>([]);
 
@@ -60,13 +70,13 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
   }
 
 
-  const filteredVendas = vendas.filter(venda => venda.loginfuncionario !== 'MARIANA' && venda.loginfuncionario !== 'Administrador'  && venda.loginfuncionario !== 'PAMELA' && venda.loginfuncionario !== 'MRAMALHO' && venda.loginfuncionario !== 'CAIXA');
+  const filteredVendas = vendas.filter(venda => venda.loginfuncionario !== 'MARIANA' && venda.loginfuncionario !== 'Administrador'  && venda.loginfuncionario !== 'PAMELA' && venda.loginfuncionario !== 'CAIXA');
 
 
   // Process and sort the filtered sales data
   const vendasComRelacao = filteredVendas.map(venda => ({
     ...venda,
-    relacao: (venda.vl_total_nf - venda.vl_desconto) / venda.quantidadevenda
+    relacao: ((venda.vl_total_nf - venda.vl_desconto) / venda.quantidadevenda)* diasTrabalhadosPorFuncionario[venda.loginfuncionario]
   }));
 
   vendasComRelacao.sort((a, b) => b.relacao - a.relacao);
