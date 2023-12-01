@@ -28,15 +28,15 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
 
   
  const diasTrabalhadosPorFuncionario: Record<string, number> = {
-    JORDHANNA: 20,
-    KETILY: 21,
-    DINORAR: 24,
-    NATHALLY: 23,
-    CAMILA: 21,
-    DELIENE: 23,
-    LUANA: 23,
-    DAICY: 24,
-MRAMALHO: 19
+    JORDHANNA: 26,
+    KETILY: 26,
+    DINORAR: 26,
+    NATHALLY: 26,
+    CAMILA: 26,
+    DELIENE: 26,
+    LUANA: 26,
+    DAICY: 26,
+MRAMALHO: 16
   };
 
   const [vendas, setVendas] = useState<vendasProps[]>([]);
@@ -54,10 +54,10 @@ MRAMALHO: 19
     axios.post(`${baseURL}`, {
       databasecliente: "BancoDadosCasaVieiraPorto.fdb",
       comboempresas: `${nomeLoja.nome ? nomeLoja.nome : 'CENTRAL'}`,
-     datainicial: `2023-11-01`,
-      datafinal: `2023-11-30`,
-      //datainicial: `${primeiroDia}`,
-      //datafinal: `${ultimoDia}`,
+    // datainicial: `2023-11-01`,
+     // datafinal: `2023-11-30`,
+      datainicial: `${primeiroDia}`,
+      datafinal: `${ultimoDia}`,
       typerel: 2
     }, {
       auth: {
