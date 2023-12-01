@@ -78,7 +78,7 @@ MRAMALHO: 19
   // Process and sort the filtered sales data
   const vendasComRelacao = filteredVendas.map(venda => ({
     ...venda,
-    relacao: (((venda.vl_total_nf - venda.vl_desconto) / diasTrabalhadosPorFuncionario[venda.loginfuncionario]) * venda.quantidadevenda )/100
+    relacao: (((venda.vl_total_nf - venda.vl_desconto) / diasTrabalhadosPorFuncionario[venda.loginfuncionario]) * venda.quantidadevenda )/1000
   }));
 
   vendasComRelacao.sort((a, b) => b.relacao - a.relacao);
