@@ -72,7 +72,7 @@ MRAMALHO: 16
   }
 
 
-  const filteredVendas = vendas.filter(venda => venda.loginfuncionario !== 'MARIANA' && venda.loginfuncionario !== 'Administrador'  && venda.loginfuncionario !== 'PAMELA' && venda.loginfuncionario !== 'CAIXA');
+  const filteredVendas = vendas.filter(venda => venda.loginfuncionario !== 'Administrador'  && venda.loginfuncionario !== 'CAIXA');
 
 
   // Process and sort the filtered sales data
