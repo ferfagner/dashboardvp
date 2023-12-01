@@ -28,12 +28,12 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
 
   
  const diasTrabalhadosPorFuncionario: Record<string, number> = {
-    JORDHANNA: 21,
-    KETILY: 22,
+    JORDHANNA: 20,
+    KETILY: 21,
     DINORAR: 24,
-    NATHALLY: 24,
-    CAMILA: 22,
-    DELIENE: 24,
+    NATHALLY: 23,
+    CAMILA: 21,
+    DELIENE: 23,
     LUANA: 23,
     DAICY: 24,
 MRAMALHO: 19
