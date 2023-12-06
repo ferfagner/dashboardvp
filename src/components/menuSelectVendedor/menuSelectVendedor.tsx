@@ -45,10 +45,10 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
     axios.post<ApiResponse>(`${baseURL}`, {
       databasecliente: "BancoDadosCasaVieiraPorto.fdb",
       comboempresas: `${nomeLoja}`,
-      datainicial: `2023-10-01`,
-      datafinal: `2023-10-31`,
-      //datainicial: `${primeiroDia}`,
-      //datafinal: `${ultimoDia}`,
+      //datainicial: `2023-10-01`,
+      //datafinal: `2023-10-31`,
+      datainicial: `${primeiroDia}`,
+      datafinal: `${ultimoDia}`,
       typerel: 2
     }, {
       auth: {
