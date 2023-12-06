@@ -30,13 +30,13 @@ export default function MainGeral(nomeLoja: nomeLojaPorps) {
  const diasTrabalhadosPorFuncionario: Record<string, number> = {
     JORDHANNA: 26,
     KETILY: 26,
-    DINORAR: 26,
+    DINORAR: 25,
     NATHALLY: 26,
     CAMILA: 26,
     DELIENE: 26,
-    LUANA: 26,
-    DAICY: 26,
-MRAMALHO: 16
+    LUANA: 25,
+    DAICY: 25,
+MRAMALHO: 25
   };
 
   const [vendas, setVendas] = useState<vendasProps[]>([]);
