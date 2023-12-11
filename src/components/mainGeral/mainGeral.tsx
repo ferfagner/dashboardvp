@@ -51,7 +51,7 @@ MRAMALHO: 25
    console.log(ultimoDia)
 
   function api() {
-    axios.post(`${baseURL}`, {
+    axios.get(`${baseURL}`, {
       databasecliente: "BancoDadosCasaVieiraPorto.fdb",
       comboempresas: `${nomeLoja.nome ? nomeLoja.nome : 'CENTRAL'}`,
     // datainicial: `2023-11-01`,
