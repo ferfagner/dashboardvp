@@ -5,7 +5,7 @@ import './menu.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 
-const baseURL = "https://easypedidos.sytes.net:8082/evento/getdadosbdemail";
+const baseURL = "https://griffedasruas.com.br/evento/getdadosbdemail";
 
 
 
