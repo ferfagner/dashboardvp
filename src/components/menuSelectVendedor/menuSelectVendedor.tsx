@@ -4,7 +4,7 @@ import './menuSelectVendedor.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-const baseURL = "https://griffedasruas.com.br/evento/report";
+const baseURL = "https://easypedidos.sytes.net:8082/evento/report";
 
 interface ApiResponse {
   dados: vendedorProps[];
