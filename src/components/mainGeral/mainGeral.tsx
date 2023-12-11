@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import './mainGeral.css'
 import { FaTrophy } from 'react-icons/fa';
 
-const baseURL = "https://griffedasruas.com.br/evento/report";
+const baseURL = "https://easypedidos.sytes.net:8082/evento/report";
 
 
 
