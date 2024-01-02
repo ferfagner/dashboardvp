@@ -54,10 +54,10 @@ MRAMALHO: 23
     axios.post(`${baseURL}`, {
       databasecliente: "BancoDadosCasaVieiraPorto.fdb",
       comboempresas: `${nomeLoja.nome ? nomeLoja.nome : 'CENTRAL'}`,
-    // datainicial: `2023-11-01`,
-     // datafinal: `2023-11-30`,
-      datainicial: `${primeiroDia}`,
-      datafinal: `${ultimoDia}`,
+    datainicial: `2023-12-01`,
+     datafinal: `2023-12-31`,
+      //datainicial: `${primeiroDia}`,
+      //datafinal: `${ultimoDia}`,
       typerel: 2
     }, {
       auth: {
