@@ -24,7 +24,7 @@ export default function Dashboard() {
     DINORAR: 65000,
     NATHALLY: 30000,
     CAMILA: 50000,
-    DELIENE: 50000,
+    PABLINE: 50000,
     LUANA: 50000,
     DAICY: 30000,
 MRAMALHO: 55000
