@@ -19,15 +19,15 @@ export default function Dashboard() {
   const dadosVendedor = state?.filtrado?.[0];
 
   const metasPorFuncionario: Record<string, number> = {
-    JORDHANNA: 55000,
-    KETILY: 65000,
-    DINORAR: 65000,
-    NATHALLY: 30000,
-    CAMILA: 50000,
-    PABLINE: 50000,
-    LUANA: 50000,
-    DAICY: 30000,
-MRAMALHO: 55000
+    JORDHANNA: 0,
+    KETILY: 0,
+    DINORAR: 0,
+    NATHALLY: 0,
+    CAMILA: 0,
+    PABLINE: 0,
+    LUANA: 0,
+    DAICY: 0,
+MRAMALHO: 0
   };
 
   const premioPorMeta: Record<string, number> = {
