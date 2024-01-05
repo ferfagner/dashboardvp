@@ -108,7 +108,7 @@ MRAMALHO: 25
           <span>Primeiro Lugar</span>
           <span>{primeiro.loginfuncionario}</span>
           <span>{primeiro.relacao.toFixed(2)}</span>
-          {nomeLoja.nome?  <></>: <span>R$80,00</span>}
+         // {nomeLoja.nome?  <></>: <span>R$80,00</span>}
         </div>
         {vendasComRelacao.length > 1 && (
         <div className="podio-item segundo">
@@ -116,7 +116,7 @@ MRAMALHO: 25
           <span>Segundo Lugar</span>
           <span>{segundo.loginfuncionario}</span>
           <span>{segundo.relacao.toFixed(2)}</span>
-          {nomeLoja.nome?  <></>: <span>R$40,00</span>}
+         // {nomeLoja.nome?  <></>: <span>R$40,00</span>}
         </div>
         )
         
@@ -127,7 +127,7 @@ MRAMALHO: 25
         <span>Terceiro Lugar</span>
         <span>{terceiro.loginfuncionario}</span>
         <span>{terceiro.relacao.toFixed(2)}</span>
-        {nomeLoja.nome?  <></>: <span>R$20,00</span>}
+       // {nomeLoja.nome?  <></>: <span>R$20,00</span>}
       </div>
         )
         
