@@ -22,11 +22,11 @@ export default function Dashboard() {
     JORDHANNA: 0,
     KETILY: 0,
     DINORAR: 0,
-    NATHALLY: 0,
+    NATHALLY: 30000,
     CAMILA: 0,
     PABLINE: 0,
     LUANA: 0,
-    DAICY: 0,
+    DAICY: 30000,
 MRAMALHO: 0
   };
 
