@@ -47,8 +47,8 @@ export default function MenuSelectVendedor({ nomeLoja }: dadosCompletos) {
       comboempresas: `${nomeLoja}`,
       datainicial: `2023-12-01`,
       datafinal: `2023-12-31`,
-      datainicial: `${primeiroDia}`,
-      datafinal: `${ultimoDia}`,
+      //datainicial: `${primeiroDia}`,
+      //datafinal: `${ultimoDia}`,
       typerel: 2
     }, {
       auth: {
